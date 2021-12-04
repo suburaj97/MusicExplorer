@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import styles from './styles';
-import strings from '../Constants/strings';
 import routeName from '../Constants/routeName';
 import ListSongs from '../Screens/ListSongs';
 import ListAlbums from '../Screens/ListAlbums';

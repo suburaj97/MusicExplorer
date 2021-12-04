@@ -34,7 +34,7 @@ export default class Player extends Component {
     this.setState({trackIndex: trackIndex});
     /* Adding Track to the Player */
     addTrack(this.props.tracks[trackIndex]);
-    TrackPlayer.addEventListener('playback-queue-ended',()=>{
+    this.playbackListner = TrackPlayer.addEventListener('playback-queue-ended',()=>{
       const index = this.state.trackIndex;
       if (index == this.props.tracks.length - 1) {
         /* All songs from the queue played */
@@ -43,6 +43,9 @@ export default class Player extends Component {
       }
       this.onNext();
     })
+  }
+  componentWillUnmount(){
+  this.playbackListner.remove();
   }
 
   /* on next Tap */

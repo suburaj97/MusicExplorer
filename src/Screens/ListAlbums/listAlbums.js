@@ -40,7 +40,6 @@ export default class ListAlbums extends Component {
 
   /* Rendering albums in FlatList Here:- */
   renderItem = ({item}) => {
-    
     return (
       <TouchableOpacity activeOpacity={.8} onPress={()=>{
         this.goToListSongs(item)

@@ -20,6 +20,7 @@ export default class ListSongs extends Component {
     /* Initializing states here:- */
     this.state = {
       albumCoverUri: null,
+      tracks: null
     };
   }
 
@@ -35,7 +36,7 @@ export default class ListSongs extends Component {
       this.props.getAlbumTracks(tracks.href, imageData.url, () => {
 
         /* Finally updating the states */
-        this.setState({albumCoverUri: imageData.url});
+        this.setState({albumCoverUri: imageData.url,tracks:this.props.tracks});
       });
     });
   }
@@ -90,8 +91,8 @@ export default class ListSongs extends Component {
             /* genrating unique key */
             keyExtractor={(item, index) => index.toString()}
 
-            /* adding album data to flatlist from redux store */
-            data={this.props.tracks}
+            /* adding album data to flatlist */
+            data={this.state.tracks}
 
             /* Disable verticle scroll indicator */
             showsVerticalScrollIndicator={false}
